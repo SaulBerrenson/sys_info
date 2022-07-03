@@ -9,6 +9,9 @@
 
 class IProcessInfo{
 public:
+    IProcessInfo() = default;
+    virtual ~IProcessInfo() = default;
+
     /*!
      * Get Current % Cpu Usage
      * @return percent
@@ -25,7 +28,7 @@ public:
 class ProcessInfo : public IProcessInfo{
 public:
     ProcessInfo();
-    ~ProcessInfo();
+    ~ProcessInfo() override;
 
     /*!
      * @copydoc IProcessInfo
