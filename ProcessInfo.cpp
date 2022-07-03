@@ -72,10 +72,9 @@ public:
     {
         int64_t memory_usage = 0;
 
-        HANDLE handle;
         PROCESS_MEMORY_COUNTERS_EX pmc;
 
-        if (handle && GetProcessMemoryInfo(handle, (PROCESS_MEMORY_COUNTERS *)&pmc, sizeof(pmc)))
+        if (GetProcessMemoryInfo(m_process_handle, (PROCESS_MEMORY_COUNTERS *)&pmc, sizeof(pmc)))
         {
             memory_usage = std::move(pmc.PrivateUsage);
         }
@@ -83,8 +82,6 @@ public:
         {
             memory_usage = -1; /*can't retrieve info*/
         }
-
-        CloseHandle(handle);
 
         return memory_usage;
     }
