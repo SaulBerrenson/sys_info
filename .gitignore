@@ -1,0 +1,4 @@
+# Default ignored files
+/cmake-build-debug
+/cmake-build-release
+/cmake-build-relwithdebinfo
