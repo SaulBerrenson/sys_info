@@ -2,6 +2,5 @@
 /cmake-build-debug
 /cmake-build-release
 /cmake-build-relwithdebinfo
-.idea/cpu_info.iml
-.idea/misc.xml
-.idea/modules.xml
+/build
+.idea/
