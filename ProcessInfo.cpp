@@ -3,13 +3,14 @@
 //
 
 #include "ProcessInfo.h"
+/*main info got from msdn (winapi) and https://stackoverflow.com/questions/63166/how-to-determine-cpu-and-memory-consumption-from-inside-a-process */
 
 #ifdef WIN32
 
-#include "windows.h"
 #include <processthreadsapi.h>
-#include <psapi.h>
+#include <Psapi.h>
 #include <xutility>
+#include "Windows.h"
 
 struct ProcessInfo::PImpl : public IProcessInfo
 {
@@ -113,9 +114,9 @@ private:
 /*WIN32*/
 #elif __linux__
 
-#include "stdlib.h"
-#include "stdio.h"
-#include "string.h"
+#include <cstdlib>
+#include <cstdio>
+#include <cstring>
 #include "sys/times.h"
 #include "sys/vtimes.h"
 
