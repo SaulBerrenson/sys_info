@@ -4,6 +4,9 @@ project(sys_info)
 include(GenerateExportHeader)
 
 set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON) #lazy export win symbols
+
 
 find_package(Threads REQUIRED)
 
