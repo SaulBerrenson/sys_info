@@ -3,6 +3,7 @@
 
 
 #include "ProcessInfo.h"
+#include "SystemInformation.h"
 
 int main() {
 
@@ -14,8 +15,14 @@ int main() {
     });
 
     ProcessInfo process;
+    SystemInformation sys_info;
 
     auto memory = process.GetMemoryUsage();
+    auto max_memory = sys_info.GetTotalMemory();
+
+    auto mem_usage = sys_info.GetTotalUsageMemory();
+
+   
 
     for (int i = 0; i < 1000; i++) {
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
@@ -23,12 +30,12 @@ int main() {
        // auto cpu_usage1 = get_cpu_usage(_pid);
 
         auto cpu_usage = process.GetCpuUsage();
-         auto memory = process.GetMemoryUsage();
+
+        auto cpu_sys_usage = sys_info.GetCpuTotalUsage();
 
         printf("devenv.exe: %.2f%%\n", cpu_usage);
-        printf("devenv.exe: %.2f%%\n", memory);
 
-        std::cout << "cpu -> " << cpu_usage << std::endl;
+        std::cout << "cpu -> " << cpu_sys_usage << std::endl;
     }
 
     return 0;
