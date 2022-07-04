@@ -6,7 +6,7 @@
 
 /*main info got from msdn and https://stackoverflow.com/questions/63166/how-to-determine-cpu-and-memory-consumption-from-inside-a-process */
 
-#ifdef WIN32
+#if  defined(WIN32) | defined(_WIN64)
 #include "Pdh.h"
 #include "Windows.h"
 

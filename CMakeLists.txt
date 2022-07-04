@@ -5,7 +5,7 @@ include(GenerateExportHeader)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON) #lazy export win symbols
+
 
 
 find_package(Threads REQUIRED)
@@ -35,6 +35,7 @@ elseif (CMAKE_COMPILER_IS_GNUCXX OR MINGW OR (CMAKE_CXX_COMPILER_ID MATCHES "Cla
     endif()
 endif()
 
+add_subdirectory(core)
 
 file(GLOB FILES_SRC ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
 file(GLOB FILES_HDRS ${CMAKE_CURRENT_SOURCE_DIR}/*.h)
@@ -43,6 +44,4 @@ add_executable(${PROJECT_NAME}
         ${FILES_SRC}
         ${FILES_HDRS})
 
-target_link_libraries(${PROJECT_NAME} PRIVATE Threads::Threads)
-
-#target_compile_definitions(${PROJECT_NAME} PRIVATE -DPSAPI_VERSION=0)
+target_link_libraries(${PROJECT_NAME} PUBLIC sysinfo::core PRIVATE Threads::Threads)
