@@ -4,3 +4,5 @@
 /cmake-build-relwithdebinfo
 /build
 .idea/
+.vs/
+out/
