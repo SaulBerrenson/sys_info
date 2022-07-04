@@ -27,5 +27,5 @@ c++ crossplatform cpu and memory usage info by current process
 
 ## Tested
 - [x] windows msvc v143
-- [x] unix gcc 10.1
-- [x] unix clang 11
+- [x] unix (debian gcc 10.1)
+- [x] unix (debgian clang 11)
