@@ -7,8 +7,10 @@
 /*main info got from msdn and https://stackoverflow.com/questions/63166/how-to-determine-cpu-and-memory-consumption-from-inside-a-process */
 
 #if  defined(WIN32) | defined(_WIN64)
-#include "Pdh.h"
-#include "Windows.h"
+
+#pragma comment(lib, "pdh.lib")
+#include <Windows.h>
+#include <Pdh.h>
 
 struct SystemInformation::PImpl : public ISystemInformation
 {

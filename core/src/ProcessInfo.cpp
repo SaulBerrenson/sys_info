@@ -7,9 +7,9 @@
 
 #if  defined(WIN32) | defined(_WIN64)
 
-#include "windows.h"
+#include "Windows.h"
 #include <processthreadsapi.h>
-#include <psapi.h>
+#include <Psapi.h>
 #include <xutility>
 
 struct ProcessInfo::PImpl : public IProcessInfo
